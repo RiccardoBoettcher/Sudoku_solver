@@ -29,3 +29,4 @@ def test_parse_grid_valid_input_returns_grid_as_dictionary():
     assert len(result) == 81
     assert result["A1"] == "4"
     assert result["I9"] == "2"
+
