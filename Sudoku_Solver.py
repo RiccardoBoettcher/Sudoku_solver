@@ -75,6 +75,26 @@ def display(values):
     print()
 
 
+def solve(grid): return search(parse_grid(grid))
+
+
+def search(values):
+    "Using depth-first search and propagation, try all possible values."
+    if values is False:
+        return False ## Failed earlier
+    if all(len(values[s]) == 1 for s in squares):
+        return values ## Solved!
+    ## Chose the unfilled square s with the fewest possibilities
+    n,s = min((len(values[s]), s) for s in squares if len(values[s]) > 1)
+    return some(search(assign(values.copy(), s, d)) for d in values[s])
+
+
+def some(seq):
+    "Return some element of seq that is true."
+    for e in seq:
+        if e: return e
+    return False
+
 digits = '123456789'
 rows = 'ABCDEFGHI'
 cols = digits
@@ -87,3 +107,12 @@ units = dict((s, [u for u in unitlist if s in u])
 peers = dict((s, set(sum(units[s], [])) - set([s]))
              for s in squares)
 
+display(solve("020810740\
+700003100\
+090002805\
+009040087\
+400208003\
+160030200\
+302700060\
+005600008\
+076051090"))
