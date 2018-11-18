@@ -28,6 +28,7 @@ def assign(values, s, d):
         return False
 
 
+# TODO: add more unit tests
 def eliminate(values, s, d):
     """Eliminate d from values[s]; propagate when values or places <= 2.
     Return values, except return False if a contradiction is detected."""
@@ -116,3 +117,5 @@ display(solve("020810740\
 302700060\
 005600008\
 076051090"))
+
+# TODO: add cmdline arguemtns, so that grid can be given on command line
