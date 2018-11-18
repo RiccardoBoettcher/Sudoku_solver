@@ -23,7 +23,7 @@ def test_parse_grid_invalid_characters_raises_valueerror():
     with pytest.raises(ValueError):
         parse_grid("A" * 81)
 
-
+#HALLO
 def test_parse_grid_valid_input_returns_grid_as_dictionary():
     result = parse_grid("003020600900305001001806400008102900700000008006708200002609500800203009005010300")
     assert len(result) == 81
